@@ -1,4 +1,13 @@
 class ThoughtsController < ApplicationController
+
+  before_action do
+    if session[:user_id].present?
+    else
+      redirect_to sign_in_path
+    end
+  end
+
+
   def index
     @thoughts = current_user.thoughts.order("created_at desc")
     @thought = Thought.new
@@ -14,7 +23,5 @@ class ThoughtsController < ApplicationController
     end
   end
 
-  def current_user
-    User.find_by username: "jwo"
-  end
+
 end

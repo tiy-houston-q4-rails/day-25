@@ -1,5 +1,7 @@
 <h1>Thoughts#index</h1>
 
+<p>Hi <%= @current_user.username %></p>
+
 <%= form_for @thought, url: post_thought_path do |f| %>
   <%= f.text_area :deep_thought %>
   <%= f.submit %>

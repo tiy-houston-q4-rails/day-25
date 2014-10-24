@@ -9,6 +9,7 @@ class ThoughtsController < ApplicationController
 
 
   def index
+    @users = User.all
     @thoughts = current_user.thoughts.order("created_at desc")
     @thought = Thought.new
   end
